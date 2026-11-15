@@ -25,6 +25,7 @@ Modelo de **probabilidad de default (PD)** que predice si un cliente superará *
 ## Datos
 
 - **Panel cliente-mes** de 60 000 registros y 49 columnas (`base_analytics_lab_061628.parquet`), observaciones de **jun-2023 a may-2024** (12 meses). No contiene identificadores de cliente.
+- ⚠️ **La base no se incluye en este repositorio** (pertenece al reto y está excluida en `.gitignore`). Para reproducir el notebook, coloca el archivo con ese nombre en la raíz del proyecto.
 - **Variable objetivo (`TARGET`):** 1 si el cliente supera 60 días de atraso en los próximos 12 meses (tasa de malos entre 14 % y 17 % según el mes).
 - **45 variables explicativas** en 4 familias: perfil sociodemográfico (anonimizado), comportamiento de pago, endeudamiento y transaccionalidad, tanto en Compartamos como en el sistema financiero (SSFF).
 - Diccionario completo en [`diccionario_variables_riesgo_credito.csv`](diccionario_variables_riesgo_credito.csv).
@@ -78,7 +79,7 @@ Combina lo que Compartamos sabe del cliente (≈ 41 % del peso del score) con su
 
 ```
 ├── Compartamos_Final.ipynb                    # Análisis completo, de punta a punta
-├── base_analytics_lab_061628.parquet          # Base anonimizada (60 000 × 49)
+├── base_analytics_lab_061628.parquet          # (no incluido) base anonimizada, 60 000 × 49
 ├── diccionario_variables_riesgo_credito.csv   # Descripción de las variables
 ├── Modelos_y_Tecnicas_de_Modelamiento_Compartamos_Banco.pdf   # Presentación al jurado
 ├── graficos/                                  # Figuras generadas por el notebook
@@ -95,7 +96,7 @@ pip install -r requirements.txt
 jupyter notebook Compartamos_Final.ipynb
 ```
 
-El notebook lee el parquet con ruta relativa, así que debe quedar en la misma carpeta. Las semillas están fijadas (`SEED = 42`). La sección *Comparación con otros modelos* entrena varios modelos con búsqueda de hiperparámetros y puede tardar unos 20–25 minutos. El notebook también corre en Google Colab.
+El notebook lee el parquet con ruta relativa (no incluido en el repo), así que debe quedar en la misma carpeta que el notebook. Las semillas están fijadas (`SEED = 42`). La sección *Comparación con otros modelos* entrena varios modelos con búsqueda de hiperparámetros y puede tardar unos 20–25 minutos. El notebook también corre en Google Colab.
 
 ## Limitaciones y próximos pasos
 
